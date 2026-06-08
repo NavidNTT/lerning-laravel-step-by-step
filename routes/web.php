@@ -25,6 +25,12 @@ Route::post('/contact/send', [ContactController::class, 'Send'])->name('contact.
 
 Route::get('/system-info',[SystemInfoController::class, 'index'])->name('system.info');
 
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+
+Route::get('/contacts/{contact}',[ContactController::class, 'show'])
+    ->name('contacts.show');
+
+
 Route::get('/',function(){
     return view('home');
 })->name('home');

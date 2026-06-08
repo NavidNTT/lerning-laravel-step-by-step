@@ -9,7 +9,13 @@
         <h1>Laravel Training</h1>
         <hr>
     </header>
-
+<nav>
+    <a href="{{ route('home') }}">خانه</a> |
+    <a href="{{ route('contact.show') }}">تماس با ما</a> |
+    <a href="{{ route('system.info') }}">اطلاعات سیستم</a> |
+    <a href="{{ route('contacts.index') }}">لیست پیام‌ها</a>
+</nav>
+<hr>
     <main>
         @yield('content')
     </main>

@@ -11,6 +11,15 @@ class ContactController extends Controller
     }
 
 
+    public function index(){
+
+    $contacts = contact::orderBy('created_at', 'desc')->paginate(5);
+
+    return view('contacts.index',[
+    'contacts' => $contacts
+    ]);
+
+    }
 
     public function send(Request $request){
         $rules = [
@@ -49,6 +58,12 @@ class ContactController extends Controller
         'meta' => $meta
     ]);
 
+    }
+
+    public function show(contact $contact){
+    return view('contacts.show',[
+    'contact' => $contact
+    ]);
     }
 
 }
