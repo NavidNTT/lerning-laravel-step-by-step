@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\contact;
 class ContactController extends Controller
 {
         public function showForm(){
@@ -36,6 +36,8 @@ class ContactController extends Controller
 
         $validated = $request->validate($rules, $messages);
 
+        $contact = contact::create($validated); 
+
         $meta = [
         'ip'         => $request->ip(),
         'user_agent' => $request->header('User-Agent'),
@@ -43,7 +45,7 @@ class ContactController extends Controller
     ];
 
     return view('contact_result',[
-        'data'=> $validated,
+        'data'=> $contact,
         'meta' => $meta
     ]);
 

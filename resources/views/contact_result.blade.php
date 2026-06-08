@@ -4,10 +4,11 @@
 
 @section('content')
     @if(isset($data))
-        <p><strong>نام:</strong> {{ $data['name'] ?? '' }}</p>
-        <p><strong>ایمیل:</strong> {{ $data['email'] ?? '' }}</p>
-        <p><strong>موضوع:</strong> {{ $data['subject'] ?? '' }}</p>
-        <p><strong>پیام:</strong> {{ $data['message'] ?? '' }}</p>
+        <p><strong>شناسه (ID):</strong> {{ $data->id }}</p>
+        <p><strong>نام:</strong> {{ $data->name }}</p>
+        <p><strong>ایمیل:</strong> {{ $data->email}}</p>
+        <p><strong>موضوع:</strong> {{ $data->subject }}</p>
+        <p><strong>پیام:</strong> {{ $data->message}}</p>
     @else
         <p style="color:red">داده‌ای برای نمایش وجود ندارد.</p>
     @endif
