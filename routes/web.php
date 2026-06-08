@@ -3,7 +3,7 @@
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\SystemInfoController;
 
 
 
@@ -23,6 +23,7 @@ Route::get('/profile/info',[ProfileController::class, 'info']);
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.show');
 Route::post('/contact/send', [ContactController::class, 'Send'])->name('contact.send');
 
+Route::get('/system-info',[SystemInfoController::class, 'index'])->name('system.info');
 
 Route::get('/',function(){
     return view('home');
