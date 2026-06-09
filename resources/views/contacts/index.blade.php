@@ -9,7 +9,11 @@
     <p>
         <a href="{{ route('contact.show') }}">ارسال پیام جدید</a>
     </p>
-
+@if(session('success'))
+    <div style="color: green;">
+        {{ session('success') }}
+    </div>
+@endif
     @if($contacts->count() > 0)
         <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width:100%;">
             <thead>
@@ -21,6 +25,7 @@
                     <th>تاریخ ایجاد</th>
                 </tr>
             </thead>
+            
             <tbody>
                 @foreach($contacts as $contact)
                     <tr>
@@ -36,6 +41,23 @@
                 @endforeach
             </tbody>
         </table>
+        <td>
+    <a href="{{ route('contacts.show', $contact->id) }}">جزئیات</a>
+
+    <form action="{{ route('contacts.destroy', $contact->id) }}"
+          method="POST"
+          style="display:inline;">
+
+        @csrf
+        @method('DELETE')
+
+        <button type="submit"
+                onclick="return confirm('آیا از حذف این پیام مطمئن هستید؟')">
+            حذف
+        </button>
+
+    </form>
+</td>
 
         {{-- لینک‌های صفحه‌بندی (فقط اگر paginate استفاده کرده‌ای) --}}
         <div style="margin-top: 15px;">

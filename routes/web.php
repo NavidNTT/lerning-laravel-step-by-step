@@ -27,8 +27,15 @@ Route::get('/system-info',[SystemInfoController::class, 'index'])->name('system.
 
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
+
+Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])
+    ->name('contacts.destroy');
+
 Route::get('/contacts/{contact}',[ContactController::class, 'show'])
     ->name('contacts.show');
+    
+
+
 
 
 Route::get('/',function(){
