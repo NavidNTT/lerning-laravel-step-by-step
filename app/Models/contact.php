@@ -15,4 +15,5 @@ class contact extends Model
         'subject',
         'message',
     ];
+    public $timestamps = true; // معمولا پیش‌فرض است
 }

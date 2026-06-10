@@ -41,10 +41,27 @@
     </table>
 
     <br>
+@if(session('success'))
+    <div style="color: green; margin-bottom: 10px;">
+        {{ session('success') }}
+    </div>
+@endif
 
-    {{-- این دکمه‌ها فعلاً فقط ظاهری هستند، بعداً در درس بعدی وصلشان می‌کنیم --}}
+    
     <p>
-        <button type="button" disabled>ویرایش (به‌زودی)</button>
-        <button type="button" disabled>حذف (به‌زودی)</button>
+        <td>
+    <a href="{{ route('contacts.edit', $contact->id) }}">ویرایش</a>
+
+    <form action="{{ route('contacts.destroy', $contact->id) }}"
+          method="POST"
+          style="display:inline;">
+        @csrf
+        @method('DELETE')
+        <button type="submit"
+                onclick="return confirm('آیا از حذف این پیام مطمئن هستید؟')">
+            حذف
+        </button>
+    </form>
+</td>
     </p>
 @endsection

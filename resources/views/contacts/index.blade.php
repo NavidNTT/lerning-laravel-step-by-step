@@ -42,19 +42,7 @@
             </tbody>
         </table>
         <td>
-    <a href="{{ route('contacts.show', $contact->id) }}">جزئیات</a>
 
-    <form action="{{ route('contacts.destroy', $contact->id) }}"
-          method="POST"
-          style="display:inline;">
-
-        @csrf
-        @method('DELETE')
-
-        <button type="submit"
-                onclick="return confirm('آیا از حذف این پیام مطمئن هستید؟')">
-            حذف
-        </button>
 
     </form>
 </td>
